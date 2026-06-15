@@ -1,0 +1,10 @@
+OS: Ubuntu 26.04 LTS (Resolute Raccoon) x86_64
+Kernel: Linux 7.0.0-22-generic
+
+python version : Python 3.13.9
+pip version : pip 25.2
+
+* created a virtual environment myvenv
+* activated it using $ source ./myvenv/bin/activate
+* created a .gitignore to prevent any unwanted or secrets files from being pushed to github 
+* created a main.py for my project 
