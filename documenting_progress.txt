@@ -8,3 +8,20 @@ pip version : pip 25.2
 * activated it using $ source ./myvenv/bin/activate
 * created a .gitignore to prevent any unwanted or secrets files from being pushed to github 
 * created a main.py for my project 
+* created a .env file 
+* installed az cli and logged in 
+* created an azure app registration with name Azure Resource Cost and Compliance Auditor , and scope Any Entra ID Tenant + Personal Microsoft accounts
+* in azure , under certificates and secrets section , i created a new secret for the app to use . i put the secret in .env and added .env to git ignore 
+* i gave the service principle permissions ans roles 
+az role assignment create \
+  --assignee <service-principle-tenant-id> \
+  --role Reader \
+  --scope /subscriptions/<subscription-id>
+* i logged in as service principle to azure 
+az login --service-principal \
+  -u <Application-client-ID> \
+  -p <Client-secret> \
+  --tenant <Directory-tenant-ID>
+* then i started installing azure related packages
+$ pip install azure-identity azure-mgmt-resource python-dotenv
+* created auditor package 
