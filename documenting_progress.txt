@@ -25,3 +25,7 @@ az login --service-principal \
 * then i started installing azure related packages
 $ pip install azure-identity azure-mgmt-resource python-dotenv
 * created auditor package 
+* created models.py
+* created checks package 
+* created base_check.py under checks package 
+* 

@@ -1,0 +1,199 @@
+{
+  "resource_groups": [
+    {
+      "id": "/subscriptions/mock-subscription/resourceGroups/demo-rg-1",
+      "name": "demo-rg-1",
+      "type": "Microsoft.Resources/resourceGroups",
+      "location": "eastus",
+      "tags": {
+        "environment": "dev",
+        "owner": "alice",
+        "project": "audit-demo"
+      },
+      "properties": {}
+    },
+    {
+      "id": "/subscriptions/mock-subscription/resourceGroups/demo-rg-2",
+      "name": "demo-rg-2",
+      "type": "Microsoft.Resources/resourceGroups",
+      "location": "westus",
+      "tags": {
+        "environment": "prod",
+        "owner": "bob"
+      },
+      "properties": {}
+    }
+  ],
+  "disks": [
+    {
+      "id": "/subscriptions/mock-subscription/resourceGroups/demo-rg-1/providers/Microsoft.Compute/disks/disk-attached",
+      "name": "disk-attached",
+      "type": "Microsoft.Compute/disks",
+      "location": "eastus",
+      "tags": {
+        "environment": "dev",
+        "project": "audit-demo"
+      },
+      "properties": {
+        "disk_state": "Attached",
+        "sku": "Standard_LRS",
+        "size_gb": 64
+      }
+    },
+    {
+      "id": "/subscriptions/mock-subscription/resourceGroups/demo-rg-1/providers/Microsoft.Compute/disks/disk-unattached-1",
+      "name": "disk-unattached-1",
+      "type": "Microsoft.Compute/disks",
+      "location": "eastus",
+      "tags": {
+        "environment": "dev"
+      },
+      "properties": {
+        "disk_state": "Unattached",
+        "sku": "StandardSSD_LRS",
+        "size_gb": 128
+      }
+    },
+    {
+      "id": "/subscriptions/mock-subscription/resourceGroups/demo-rg-2/providers/Microsoft.Compute/disks/disk-unattached-2",
+      "name": "disk-unattached-2",
+      "type": "Microsoft.Compute/disks",
+      "location": "westus",
+      "tags": {
+        "owner": "bob"
+      },
+      "properties": {
+        "disk_state": "Unattached",
+        "sku": "Premium_LRS",
+        "size_gb": 256
+      }
+    }
+  ],
+  "virtual_machines": [
+    {
+      "id": "/subscriptions/mock-subscription/resourceGroups/demo-rg-1/providers/Microsoft.Compute/virtualMachines/idle-vm",
+      "name": "idle-vm",
+      "type": "Microsoft.Compute/virtualMachines",
+      "location": "eastus",
+      "tags": {
+        "environment": "dev",
+        "owner": "alice",
+        "project": "audit-demo"
+      },
+      "properties": {
+        "vm_size": "Standard_B2s",
+        "power_state": "PowerState/running",
+        "average_cpu": 2.3
+      }
+    },
+    {
+      "id": "/subscriptions/mock-subscription/resourceGroups/demo-rg-1/providers/Microsoft.Compute/virtualMachines/stopped-vm",
+      "name": "stopped-vm",
+      "type": "Microsoft.Compute/virtualMachines",
+      "location": "eastus",
+      "tags": {
+        "owner": "alice",
+        "project": "audit-demo"
+      },
+      "properties": {
+        "vm_size": "Standard_D2s_v3",
+        "power_state": "PowerState/stopped",
+        "average_cpu": 0.0
+      }
+    },
+    {
+      "id": "/subscriptions/mock-subscription/resourceGroups/demo-rg-2/providers/Microsoft.Compute/virtualMachines/healthy-vm",
+      "name": "healthy-vm",
+      "type": "Microsoft.Compute/virtualMachines",
+      "location": "westus",
+      "tags": {
+        "environment": "prod",
+        "owner": "bob",
+        "project": "audit-demo"
+      },
+      "properties": {
+        "vm_size": "Standard_D4s_v3",
+        "power_state": "PowerState/running",
+        "average_cpu": 50.2
+      }
+    }
+  ],
+  "network_security_groups": [
+    {
+      "id": "/subscriptions/mock-subscription/resourceGroups/demo-rg-1/providers/Microsoft.Network/networkSecurityGroups/open-ssh-nsg",
+      "name": "open-ssh-nsg",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "location": "eastus",
+      "tags": {
+        "environment": "dev"
+      },
+      "properties": {
+        "security_rules": [
+          {
+            "name": "Allow-SSH-Internet",
+            "direction": "Inbound",
+            "access": "Allow",
+            "source_address_prefix": "*",
+            "destination_port_range": "22"
+          }
+        ]
+      }
+    },
+    {
+      "id": "/subscriptions/mock-subscription/resourceGroups/demo-rg-2/providers/Microsoft.Network/networkSecurityGroups/clean-nsg",
+      "name": "clean-nsg",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "location": "westus",
+      "tags": {
+        "owner": "bob",
+        "project": "audit-demo"
+      },
+      "properties": {
+        "security_rules": [
+          {
+            "name": "Allow-HTTP-Internal",
+            "direction": "Inbound",
+            "access": "Allow",
+            "source_address_prefix": "10.0.0.0/8",
+            "destination_port_range": "80"
+          }
+        ]
+      }
+    }
+  ],
+  "storage_accounts": [
+    {
+      "id": "/subscriptions/mock-subscription/resourceGroups/demo-rg-1/providers/Microsoft.Storage/storageAccounts/publicstorage",
+      "name": "publicstorage",
+      "type": "Microsoft.Storage/storageAccounts",
+      "location": "eastus",
+      "tags": {
+        "environment": "dev",
+        "project": "audit-demo"
+      },
+      "properties": {
+        "allow_blob_public_access": true,
+        "primary_endpoints": {
+          "blob": "https://publicstorage.blob.core.windows.net/"
+        }
+      }
+    },
+    {
+      "id": "/subscriptions/mock-subscription/resourceGroups/demo-rg-2/providers/Microsoft.Storage/storageAccounts/privateaccount",
+      "name": "privateaccount",
+      "type": "Microsoft.Storage/storageAccounts",
+      "location": "westus",
+      "tags": {
+        "environment": "prod",
+        "owner": "bob",
+        "project": "audit-demo"
+      },
+      "properties": {
+        "allow_blob_public_access": false,
+        "primary_endpoints": {
+          "blob": "https://privateaccount.blob.core.windows.net/"
+        }
+      }
+    }
+  ]
+}
