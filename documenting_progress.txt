@@ -28,4 +28,13 @@ $ pip install azure-identity azure-mgmt-resource python-dotenv
 * created models.py
 * created checks package 
 * created base_check.py under checks package 
-* 
+* created azure_client.py with mock mode and Azure SDK wrapper
+* created report.py for pandas report generation and CSV/XLSX/JSON export
+* created cli.py with argparse, rich output, export flags, and mock mode
+* created cost_checks.py and security_checks.py with multiple audit checks
+* created fixtures/sample_resources.json for mock Azure resources
+* created tests for models, checks, report exports, and CLI integration
+* updated requirements.txt with Azure SDK packages, pandas, openpyxl, rich, pytest, ruff, black
+* added README.md documentation and GitHub Actions CI workflow
+* formatted code with black, linted with ruff, and passed pytest
+* committed and pushed the complete project to GitHub
